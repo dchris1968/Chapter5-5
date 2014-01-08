@@ -37,10 +37,19 @@
 
 		<h2>A randomly displayed Chinese proverb read from a text file</h2>
 <?php
-        $proverbs = "proverbs.txt";
-		$proverbs = file($proverbs);
-		$ranNum = rand(0, count($proverbs)-1);		
-		echo "<p style='text-align: center;'>$proverbs[$ranNum]</p>";
+		
+		$proverbs = "proverbs.txt";
+				
+		if(file_get_contents("$proverbs") == "")
+		{
+			echo "";
+		}
+		else
+		{			
+			$proverbs = file($proverbs);
+			$ranNum = rand(0, count($proverbs)-1);		
+			echo "<p style='text-align: center;'>$proverbs[$ranNum]</p>";
+		}
 ?>
 </body>
 </html>
